@@ -1,7 +1,12 @@
 <template>
-  <div>
+  <UApp>
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
-  </div>
+  </UApp>
 </template>
+
+<style>
+@import "tailwindcss";
+@import "@nuxt/ui";
+</style>
