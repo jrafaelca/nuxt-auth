@@ -1,5 +1,6 @@
 <script setup>
 definePageMeta({
+  middleware: 'guest',
   layout: 'auth',
   title: 'Recover password',
   pageIcon: 'i-lucide-key-round',

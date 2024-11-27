@@ -1,14 +1,23 @@
-<script setup lang="ts">
-import type {FormSubmitEvent} from '#ui/types'
+<script setup>
+const props = defineProps({
+  token: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+})
 
-interface Props {
-  token: string
-}
-
-const props = defineProps<Props>()
+const {$laravelClient} = useNuxtApp()
+const {mapFormErrors} = useLaravel()
+const {t} = useI18n()
+const toast = useToast()
 
 const form = useTemplateRef('form')
 const state = reactive({
+  email: props.email,
   password: undefined,
   password_confirmation: undefined,
   token: props.token,
@@ -16,12 +25,32 @@ const state = reactive({
 
 const showPassword = ref(false)
 
-function onSubmit(event: FormSubmitEvent<typeof state>) {
+async function onSubmit(event) {
   form.value?.clear()
 
   const formData = event.data
 
-  console.log(formData)
+  try {
+    await $laravelClient('/v1/auth/reset-password', {
+      method: 'POST',
+      body: formData,
+    })
+
+    toast.add({
+      title: t('Password Updated'),
+      description: t('Your password has been successfully changed. You can now log in with your new password.'),
+      color: 'success',
+      icon: 'lucide-circle-check'
+    });
+
+    navigateTo('/login', {replace: true})
+  } catch (error) {
+    if (error?.response.status === 422) {
+      form.value?.setErrors(mapFormErrors(error.response._data.errors))
+    }
+
+    state.password = undefined
+  }
 }
 </script>
 
@@ -32,6 +61,22 @@ function onSubmit(event: FormSubmitEvent<typeof state>) {
       class="space-y-5"
       @submit="onSubmit"
   >
+    <UFormField
+        name="email"
+        :label="$t('Email')"
+    >
+      <UInput
+          id="email"
+          name="email"
+          type="email"
+          v-model="state.email"
+          :placeholder="$t('Enter your email')"
+          class="w-full"
+          autocomplete="username"
+          readonly
+      />
+    </UFormField>
+
     <UFormField
         name="password"
         :label="$t('Password')"
@@ -70,7 +115,7 @@ function onSubmit(event: FormSubmitEvent<typeof state>) {
           id="password_confirmation"
           name="password_confirmation"
           :type="showPassword ? 'text' : 'password'"
-          v-model="state.password"
+          v-model="state.password_confirmation"
           :placeholder="$t('Enter again your password')"
           class="w-full"
           autocomplete="new-password"

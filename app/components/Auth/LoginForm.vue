@@ -1,5 +1,6 @@
-<script setup lang="ts">
-import type {FormSubmitEvent} from '#ui/types'
+<script setup>
+const {login} = useAuth()
+const {mapFormErrors} = useLaravel()
 
 const form = useTemplateRef('form')
 const state = reactive({
@@ -10,12 +11,20 @@ const state = reactive({
 
 const showPassword = ref(false)
 
-function onSubmit(event: FormSubmitEvent<typeof state>) {
+async function onSubmit(event) {
   form.value?.clear()
 
   const formData = event.data
 
-  console.log(formData)
+  try {
+    await login(formData)
+  } catch (error) {
+    if (error?.response.status === 422) {
+      form.value?.setErrors(mapFormErrors(error.response._data.errors))
+    }
+
+    state.password = undefined
+  }
 }
 </script>
 
