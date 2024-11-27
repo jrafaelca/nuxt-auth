@@ -1,19 +1,17 @@
-<script setup lang="ts">
+<script setup>
 definePageMeta({
+  middleware: 'auth',
   layout: 'auth',
   title: 'Sign in',
   pageIcon: 'i-lucide-mail',
   pageTitle: 'Check your email',
   pageDescription: 'We send a verification link to the email address you provided.',
 })
+
 </script>
 
 <template>
-  <UButton
-      :label="$t('Resend Verification Email')"
-      size="lg"
-      block
-  />
+  <EmailResendVerifyNotificationButton/>
 
   <div class="text-center">
     <UButton

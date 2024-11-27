@@ -1,5 +1,6 @@
-<script setup lang="ts">
+<script setup>
 definePageMeta({
+  middleware: 'guest',
   layout: 'auth',
   title: 'Reset password',
   pageIcon: 'i-lucide-lock-keyhole',
@@ -9,11 +10,13 @@ definePageMeta({
 
 const route = useRoute()
 
-const resetToken = route.params.hash as string
+const email = route.query.email
+const resetToken = route.params.hash
 </script>
 
 <template>
   <AuthResetPasswordForm
+      :email="email"
       :token="resetToken"
   />
 

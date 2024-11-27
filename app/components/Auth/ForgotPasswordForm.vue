@@ -1,17 +1,40 @@
-<script setup lang="ts">
-import type {FormSubmitEvent} from '#ui/types'
+<script setup>
+const {$laravelClient} = useNuxtApp()
+const {mapFormErrors} = useLaravel()
+const {t} = useI18n()
+const toast = useToast()
 
 const form = useTemplateRef('form')
 const state = reactive({
   email: undefined,
 })
 
-function onSubmit(event: FormSubmitEvent<typeof state>) {
+async function onSubmit(event) {
   form.value?.clear()
 
   const formData = event.data
 
-  console.log(formData)
+  try {
+    await $laravelClient('/v1/auth/forgot-password', {
+      method: 'POST',
+      body: formData,
+    })
+
+    toast.add({
+      title: t('Request Sent'),
+      description: t('Check your email to continue with the password recovery process.'),
+      color: 'info',
+      icon: 'lucide-info'
+    });
+
+    navigateTo('/login', {replace: true})
+  } catch (error) {
+    if (error?.response.status === 422) {
+      form.value?.setErrors(mapFormErrors(error.response._data.errors))
+    }
+
+    state.password = undefined
+  }
 }
 </script>
 

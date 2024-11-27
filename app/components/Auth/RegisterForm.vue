@@ -1,5 +1,6 @@
-<script setup lang="ts">
-import type {FormSubmitEvent} from '#ui/types'
+<script setup>
+const {$laravelClient} = useNuxtApp()
+const {mapFormErrors} = useLaravel()
 
 const form = useTemplateRef('form')
 const state = reactive({
@@ -10,12 +11,25 @@ const state = reactive({
 
 const showPassword = ref(false)
 
-function onSubmit(event: FormSubmitEvent<typeof state>) {
+async function onSubmit(event) {
   form.value?.clear()
 
   const formData = event.data
 
-  console.log(formData)
+  try {
+    await $laravelClient('/v1/auth/register', {
+      method: 'POST',
+      body: formData,
+    })
+
+    navigateTo('/', {replace: true})
+  } catch (error) {
+    if (error?.response.status === 422) {
+      form.value?.setErrors(mapFormErrors(error.response._data.errors))
+    }
+
+    state.password = undefined
+  }
 }
 </script>
 

@@ -1,5 +1,6 @@
 <script setup>
 definePageMeta({
+  middleware: 'guest',
   layout: 'auth',
   title: 'Sign up',
   pageIcon: 'file-icons-laravel',
