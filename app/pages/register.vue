@@ -1,24 +1,28 @@
 <script setup>
 definePageMeta({
+  title: 'Sign up',
   middleware: 'guest',
   layout: 'auth',
-  title: 'Sign up',
-  pageIcon: 'file-icons-laravel',
-  pageTitle: 'Create an account',
-  pageDescription: 'Sign up in less than 2 minutes.',
 })
 </script>
 
 <template>
-  <AuthRegisterForm/>
+  <AuthCard
+      :title="$t('Create an account')"
+      :description="$t('Sign up in less than 2 minutes.')"
+      icon="file-icons-laravel"
+  >
+    <AuthRegisterForm/>
 
-  <div class="text-sm text-neutral-500 text-center">
-    {{ $t('Already have an account?') }}
-    <UButton
-        to="/login"
-        :label="$t('Log in')"
-        variant="link"
-        class="p-0"
-    />
-  </div>
+    <div class="text-sm text-center text-[var(--ui-text-muted)]">
+      {{ $t('Already have an account?') }}
+
+      <UButton
+          :to="$localeRoute({name: 'login'})"
+          :label="$t('Log in')"
+          variant="link"
+          class="p-0"
+      />
+    </div>
+  </AuthCard>
 </template>

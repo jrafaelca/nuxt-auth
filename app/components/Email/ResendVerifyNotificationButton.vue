@@ -10,7 +10,7 @@ async function resendVerifyNotification() {
     })
 
     toast.add({
-      title: t('Verification Email Resent'),
+      title: t('Verification email resent'),
       description: t('Please check your inbox for the verification email and follow the instructions to verify your account.'),
       color: 'info',
       icon: 'lucide-mail'

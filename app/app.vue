@@ -1,11 +1,12 @@
 <script setup lang="ts">
 const route = useRoute()
 const config = useRuntimeConfig()
+const {t} = useI18n()
 
 useHead({
-  title: () => route.meta?.title ?? '',
+  title: () => t(route.meta?.title) ?? '',
   titleTemplate: () => {
-    return route.meta?.title
+    return t(route.meta?.title)
         ? `%s | ${config.public.appName}`
         : config.public.appName
   },

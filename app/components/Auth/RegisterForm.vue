@@ -34,19 +34,9 @@ async function onSubmit(event) {
 </script>
 
 <template>
-  <UForm
-      ref="form"
-      :state="state"
-      class="space-y-5"
-      @submit="onSubmit"
-  >
-    <UFormField
-        name="name"
-        :label="$t('Name')"
-    >
+  <UForm ref="form" :state="state" class="space-y-5" @submit="onSubmit">
+    <UFormField name="name" :label="$t('Name')">
       <UInput
-          id="name"
-          name="name"
           type="name"
           v-model="state.name"
           :placeholder="$t('Enter your name')"
@@ -56,13 +46,8 @@ async function onSubmit(event) {
       />
     </UFormField>
 
-    <UFormField
-        name="email"
-        :label="$t('Email')"
-    >
+    <UFormField name="email" :label="$t('Email')">
       <UInput
-          id="email"
-          name="email"
           type="email"
           v-model="state.email"
           :placeholder="$t('Enter your email')"
@@ -71,18 +56,11 @@ async function onSubmit(event) {
       />
     </UFormField>
 
-    <UFormField
-        name="password"
-        :label="$t('Password')"
-        :help="$t('Must be at least 8 characters.')"
-
-    >
+    <UFormField name="password" :label="$t('Password')" :help="$t('Must be at least 8 characters.')">
       <UInput
-          id="password"
-          name="password"
           :type="showPassword ? 'text' : 'password'"
           v-model="state.password"
-          :placeholder="$t('Create a password')"
+          :placeholder="$t('Enter a password')"
           class="w-full"
           autocomplete="new-password"
           :ui="{ trailing: 'pr-0.5' }"

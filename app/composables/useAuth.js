@@ -2,7 +2,7 @@ export const useAuth = () => {
     const {$laravelClient} = useNuxtApp()
 
     const user = useState('user', () => null)
-    const loggedIn = computed(() => user.value !== null)
+    const isAuthenticated = computed(() => user.value !== null)
 
     async function fetchUser() {
         try {
@@ -45,7 +45,7 @@ export const useAuth = () => {
 
     return {
         user,
-        loggedIn,
+        isAuthenticated,
         fetchUser,
         login,
         logout,
