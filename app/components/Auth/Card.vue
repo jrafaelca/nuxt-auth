@@ -33,7 +33,7 @@ defineProps({
           {{ title }}
         </h1>
 
-        <p v-if="description" class="text-neutral-600">
+        <p v-if="description" class="text-[var(--ui-text-muted)]">
           {{ description }}
         </p>
       </div>

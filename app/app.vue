@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const route = useRoute()
 const config = useRuntimeConfig()
 const {t} = useI18n()

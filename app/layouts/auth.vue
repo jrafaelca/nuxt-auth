@@ -1,5 +1,5 @@
-<script setup lang="ts">
-const route = useRoute()
+<script setup>
+
 </script>
 
 <template>
@@ -7,7 +7,8 @@ const route = useRoute()
     <div class="w-full mx-auto pt-12 px-4 md:pt-24 md:px-0 md:max-w-[360px]">
       <slot/>
 
-      <div class="flex items-center justify-center mt-4">
+      <div class="flex items-center justify-center gap-2 mt-4">
+        <ColorModeDropdown/>
         <LocaleDropdown/>
       </div>
     </div>
@@ -20,5 +21,9 @@ const route = useRoute()
   background-repeat: no-repeat;
   background-position: center -100px;
   background-size: 768px;
+}
+
+.dark #layout-wrapper {
+  background-image: url('@/assets/img/patterns/grid-dark.png');
 }
 </style>
