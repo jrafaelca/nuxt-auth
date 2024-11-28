@@ -14,9 +14,6 @@ export default defineNuxtConfig({
         compatibilityVersion: 4,
     },
     modules: ['@nuxt/ui', '@nuxtjs/i18n'],
-    colorMode: {
-        preference: 'light'
-    },
     i18n: {
         locales: [{
             code: 'en',
@@ -24,10 +21,10 @@ export default defineNuxtConfig({
             file: 'en.json'
         }, {
             code: 'es',
-            name: 'Spanish',
+            name: 'Español',
             file: 'es.json'
         }],
         lazy: true,
         defaultLocale: process.env.APP_LOCALE || 'en',
-    }
+    },
 })

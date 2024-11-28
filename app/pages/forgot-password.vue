@@ -1,25 +1,28 @@
 <script setup>
 definePageMeta({
+  title: 'Forgot password',
   middleware: 'guest',
   layout: 'auth',
-  title: 'Recover password',
-  pageIcon: 'i-lucide-key-round',
-  pageTitle: 'Forgot password?',
-  pageDescription: 'No worries, we’ll send you reset instructions.',
 })
 </script>
 
 <template>
-  <AuthForgotPasswordForm/>
+  <AuthCard
+      :title="$t('Forgot password?')"
+      :description="$t('No worries, we’ll send you reset instructions.')"
+      icon="i-lucide-key-round"
+  >
+    <AuthForgotPasswordForm/>
 
-  <div class="text-center">
-    <UButton
-        to="/login"
-        :label="$t('Back to log in')"
-        color="neutral"
-        icon="i-lucide-arrow-left"
-        variant="link"
-        class="p-0"
-    />
-  </div>
+    <div class="text-center">
+      <UButton
+          :to="$localeRoute({name: 'login'})"
+          :label="$t('Back to log in')"
+          variant="link"
+          color="neutral"
+          icon="i-lucide-arrow-left"
+          class="p-0"
+      />
+    </div>
+  </AuthCard>
 </template>

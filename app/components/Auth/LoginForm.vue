@@ -29,19 +29,9 @@ async function onSubmit(event) {
 </script>
 
 <template>
-  <UForm
-      ref="form"
-      :state="state"
-      class="space-y-5"
-      @submit="onSubmit"
-  >
-    <UFormField
-        name="email"
-        :label="$t('Email')"
-    >
+  <UForm ref="form" :state="state" class="space-y-5" @submit="onSubmit">
+    <UFormField name="email" :label="$t('Email')">
       <UInput
-          id="email"
-          name="email"
           type="email"
           v-model="state.email"
           :placeholder="$t('Enter your email')"
@@ -51,13 +41,8 @@ async function onSubmit(event) {
       />
     </UFormField>
 
-    <UFormField
-        name="password"
-        :label="$t('Password')"
-    >
+    <UFormField name="password" :label="$t('Password')">
       <UInput
-          id="password"
-          name="password"
           :type="showPassword ? 'text' : 'password'"
           v-model="state.password"
           :placeholder="$t('Enter your password')"
@@ -81,14 +66,10 @@ async function onSubmit(event) {
     </UFormField>
 
     <div class="flex items-center justify-between pt-1">
-      <UCheckbox
-          :label="$t('Remember me')"
-          name="remember"
-          v-model="state.remember"
-      />
+      <UCheckbox :label="$t('Remember me')" name="remember" v-model="state.remember"/>
 
       <UButton
-          to="/forgot-password"
+          :to="$localeRoute({name: 'forgot-password'})"
           :label="$t('Forgot password')"
           variant="link"
           class="p-0"
