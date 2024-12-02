@@ -40,7 +40,7 @@ async function onSubmit(event) {
       title: t('Password updated'),
       description: t('Your password has been successfully changed. You can now log in with your new password.'),
       color: 'success',
-      icon: 'lucide-circle-check'
+      icon: 'i-lucide-circle-check'
     });
 
     navigateTo('/login', {replace: true})
@@ -55,72 +55,78 @@ async function onSubmit(event) {
 </script>
 
 <template>
-  <UForm ref="form" :state="state" class="space-y-5" @submit="onSubmit">
-    <UFormField name="email" :label="$t('Email')">
-      <UInput
-          type="email"
-          v-model="state.email"
-          :placeholder="$t('Enter your email')"
-          class="w-full"
-          autocomplete="username"
-          readonly
-      />
-    </UFormField>
+  <UForm
+      ref="form"
+      :state="state"
+      class="space-y-6"
+      @submit="onSubmit"
+  >
+    <div class="space-y-5">
+      <UFormField name="email" :label="$t('Email')">
+        <UInput
+            type="email"
+            v-model="state.email"
+            :placeholder="$t('Enter your email')"
+            class="w-full"
+            autocomplete="username"
+            readonly
+        />
+      </UFormField>
 
-    <UFormField name="password" :label="$t('Password')">
-      <UInput
-          :type="showPassword ? 'text' : 'password'"
-          v-model="state.password"
-          :placeholder="$t('Enter your password')"
-          class="w-full"
-          autocomplete="new-password"
-          autofocus
-          :ui="{ trailing: 'pr-0.5' }"
-      >
-        <template #trailing>
-          <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
-              :aria-label="showPassword ? $t('Hide password') : $t('Show password')"
-              :aria-pressed="showPassword"
-              aria-controls="password"
-              @click="showPassword = !showPassword"
-          />
-        </template>
-      </UInput>
-    </UFormField>
+      <UFormField name="password" :label="$t('Password')">
+        <UInput
+            :type="showPassword ? 'text' : 'password'"
+            v-model="state.password"
+            :placeholder="$t('Enter your password')"
+            class="w-full"
+            autocomplete="new-password"
+            autofocus
+            :ui="{ trailing: 'pr-0.5' }"
+        >
+          <template #trailing>
+            <UButton
+                color="neutral"
+                variant="link"
+                size="sm"
+                :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
+                :aria-label="showPassword ? $t('Hide password') : $t('Show password')"
+                :aria-pressed="showPassword"
+                aria-controls="password"
+                @click="showPassword = !showPassword"
+            />
+          </template>
+        </UInput>
+      </UFormField>
 
-    <UFormField name="password_confirmation" :label="$t('Confirm password')">
-      <UInput
-          :type="showPassword ? 'text' : 'password'"
-          v-model="state.password_confirmation"
-          :placeholder="$t('Enter again your password')"
-          class="w-full"
-          autocomplete="new-password"
-          :ui="{ trailing: 'pr-0.5' }"
-      >
-        <template #trailing>
-          <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
-              :aria-label="showPassword ? $t('Hide password') : $t('Show password')"
-              :aria-pressed="showPassword"
-              aria-controls="password"
-              @click="showPassword = !showPassword"
-          />
-        </template>
-      </UInput>
-    </UFormField>
+      <UFormField name="password_confirmation" :label="$t('Confirm password')">
+        <UInput
+            :type="showPassword ? 'text' : 'password'"
+            v-model="state.password_confirmation"
+            :placeholder="$t('Enter again your password')"
+            class="w-full"
+            autocomplete="new-password"
+            :ui="{ trailing: 'pr-0.5' }"
+        >
+          <template #trailing>
+            <UButton
+                color="neutral"
+                variant="link"
+                size="sm"
+                :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
+                :aria-label="showPassword ? $t('Hide password') : $t('Show password')"
+                :aria-pressed="showPassword"
+                aria-controls="password"
+                @click="showPassword = !showPassword"
+            />
+          </template>
+        </UInput>
+      </UFormField>
+    </div>
 
     <UButton
         type="submit"
         :label="$t('Reset password')"
         size="lg"
-        class="mt-1"
         block
     />
   </UForm>

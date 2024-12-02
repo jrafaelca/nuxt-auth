@@ -13,7 +13,7 @@ async function resendVerifyNotification() {
       title: t('Verification email resent'),
       description: t('Please check your inbox for the verification email and follow the instructions to verify your account.'),
       color: 'info',
-      icon: 'lucide-mail'
+      icon: 'i-lucide-mail'
     });
   } catch (error) {
     //

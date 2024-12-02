@@ -8,11 +8,27 @@ definePageMeta({
 </script>
 
 <template>
-  <AuthCard
-      :title="$t('Check your email')"
-      :description="$t('We send a verification link to the email address you provided.')"
-      icon="i-lucide-mail"
-  >
+  <div class="space-y-8">
+    <div class="text-center space-y-6">
+      <UButton
+          :to="$localeRoute({name: 'login'})"
+          variant="outline"
+          color="neutral"
+          size="xl"
+          icon="i-lucide-mail"
+          class="p-4"
+      />
+
+      <div class="space-y-3">
+        <h1 class="font-semibold text-2xl md:text-3xl">
+          {{ $t('Check your email') }}
+        </h1>
+        <p class="text-[var(--ui-text-muted)]">
+          {{ $t('We send a verification link to the email address you provided.') }}
+        </p>
+      </div>
+    </div>
+
     <EmailResendVerifyNotificationButton/>
 
     <div class="text-center">
@@ -22,8 +38,7 @@ definePageMeta({
           variant="link"
           color="neutral"
           icon="i-lucide-arrow-left"
-          class="p-0"
       />
     </div>
-  </AuthCard>
+  </div>
 </template>

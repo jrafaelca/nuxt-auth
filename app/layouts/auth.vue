@@ -3,27 +3,42 @@
 </script>
 
 <template>
-  <div id="layout-wrapper" class="min-h-screen">
-    <div class="w-full mx-auto pt-12 px-4 md:pt-24 md:px-0 md:max-w-[360px]">
-      <slot/>
+  <div id="layout" class="min-h-screen">
+    <header>
+      <UContainer>
+        <div class="flex items-center justify-between h-16">
+          <NuxtLink :to="$localeRoute({ name: 'login'})">
+            <Logo class="h-8 text-[var(--ui-primary)]"/>
+          </NuxtLink>
 
-      <div class="flex items-center justify-center gap-2 mt-4">
-        <ColorModeDropdown/>
-        <LocaleDropdown/>
-      </div>
-    </div>
+          <div class="flex gap-2">
+            <LocaleDropdown/>
+            <ColorModeDropdown/>
+          </div>
+        </div>
+      </UContainer>
+    </header>
+
+    <main class="mt-12 md:mt-24">
+      <UContainer>
+        <div class="w-full mx-auto max-w-sm">
+          <slot/>
+        </div>
+      </UContainer>
+    </main>
   </div>
 </template>
 
+
 <style scoped>
-#layout-wrapper {
+#layout {
   background-image: url('@/assets/img/patterns/grid.png');
   background-repeat: no-repeat;
   background-position: center -100px;
   background-size: 768px;
 }
 
-.dark #layout-wrapper {
+.dark #layout {
   background-image: url('@/assets/img/patterns/grid-dark.png');
 }
 </style>
