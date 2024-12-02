@@ -24,7 +24,7 @@ async function onSubmit(event) {
       title: t('Request sent'),
       description: t('Check your email to continue with the password recovery process.'),
       color: 'info',
-      icon: 'lucide-info'
+      icon: 'i-lucide-info'
     });
 
     navigateTo('/login', {replace: true})
@@ -39,23 +39,29 @@ async function onSubmit(event) {
 </script>
 
 <template>
-  <UForm ref="form" :state="state" class="space-y-5" @submit="onSubmit">
-    <UFormField name="email" :label="$t('Email')">
-      <UInput
-          type="email"
-          v-model="state.email"
-          :placeholder="$t('Enter your email')"
-          class="w-full"
-          autofocus
-          autocomplete="username"
-      />
-    </UFormField>
+  <UForm
+      ref="form"
+      :state="state"
+      class="space-y-6"
+      @submit="onSubmit"
+  >
+    <div class="space-y-5">
+      <UFormField name="email" :label="$t('Email')">
+        <UInput
+            type="email"
+            v-model="state.email"
+            :placeholder="$t('Enter your email')"
+            class="w-full"
+            autofocus
+            autocomplete="username"
+        />
+      </UFormField>
+    </div>
 
     <UButton
         type="submit"
         :label="$t('Reset password')"
         size="lg"
-        class="mt-1"
         block
     />
   </UForm>

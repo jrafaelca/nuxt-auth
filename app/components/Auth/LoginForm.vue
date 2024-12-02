@@ -29,43 +29,50 @@ async function onSubmit(event) {
 </script>
 
 <template>
-  <UForm ref="form" :state="state" class="space-y-5" @submit="onSubmit">
-    <UFormField name="email" :label="$t('Email')">
-      <UInput
-          type="email"
-          v-model="state.email"
-          :placeholder="$t('Enter your email')"
-          class="w-full"
-          autofocus
-          autocomplete="username"
-      />
-    </UFormField>
+  <UForm
+      ref="form"
+      :state="state"
+      class="space-y-6"
+      @submit="onSubmit"
+  >
+    <div class="space-y-5">
+      <UFormField name="email" :label="$t('Email')">
+        <UInput
+            type="email"
+            v-model="state.email"
+            :placeholder="$t('Enter your email')"
+            class="w-full"
+            autofocus
+            autocomplete="username"
+        />
+      </UFormField>
 
-    <UFormField name="password" :label="$t('Password')">
-      <UInput
-          :type="showPassword ? 'text' : 'password'"
-          v-model="state.password"
-          :placeholder="$t('Enter your password')"
-          class="w-full"
-          autocomplete="current-password"
-          :ui="{ trailing: 'pr-0.5' }"
-      >
-        <template #trailing>
-          <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
-              :aria-label="showPassword ? $t('Hide password') : $t('Show password')"
-              :aria-pressed="showPassword"
-              aria-controls="password"
-              @click="showPassword = !showPassword"
-          />
-        </template>
-      </UInput>
-    </UFormField>
+      <UFormField name="password" :label="$t('Password')">
+        <UInput
+            :type="showPassword ? 'text' : 'password'"
+            v-model="state.password"
+            :placeholder="$t('Enter your password')"
+            class="w-full"
+            autocomplete="current-password"
+            :ui="{ trailing: 'pr-0.5' }"
+        >
+          <template #trailing>
+            <UButton
+                color="neutral"
+                variant="link"
+                size="sm"
+                :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
+                :aria-label="showPassword ? $t('Hide password') : $t('Show password')"
+                :aria-pressed="showPassword"
+                aria-controls="password"
+                @click="showPassword = !showPassword"
+            />
+          </template>
+        </UInput>
+      </UFormField>
+    </div>
 
-    <div class="flex items-center justify-between pt-1">
+    <div class="flex items-center justify-between">
       <UCheckbox :label="$t('Remember me')" name="remember" v-model="state.remember"/>
 
       <UButton
@@ -80,7 +87,6 @@ async function onSubmit(event) {
         type="submit"
         :label="$t('Sign in')"
         size="lg"
-        class="mt-1"
         block
     />
   </UForm>
