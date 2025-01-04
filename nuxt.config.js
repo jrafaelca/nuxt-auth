@@ -8,12 +8,8 @@ export default defineNuxtConfig({
             apiBaseUrl: process.env.API_BASE_URL || 'http://localhost',
         },
     },
-    compatibilityDate: '2024-04-03',
-    devtools: {enabled: true},
-    future: {
-        compatibilityVersion: 4,
-    },
     modules: ['@nuxt/ui', '@nuxtjs/i18n'],
+    css: ['~/assets/css/main.css'],
     i18n: {
         locales: [{
             code: 'en',
@@ -27,4 +23,9 @@ export default defineNuxtConfig({
         lazy: true,
         defaultLocale: process.env.APP_LOCALE || 'en',
     },
+    compatibilityDate: '2024-04-03',
+    future: {
+        compatibilityVersion: 4,
+    },
+    devtools: {enabled: true},
 })
