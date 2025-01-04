@@ -7,32 +7,14 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="space-y-8">
-    <div class="text-center space-y-6">
-      <UButton
-          :to="$localeRoute({name: 'login'})"
-          variant="outline"
-          color="neutral"
-          size="xl"
-          class="p-4"
-      >
-        <Logo class="h-6"/>
-      </UButton>
-
-      <div class="space-y-3">
-        <h1 class="font-semibold text-2xl md:text-3xl">
-          {{ $t('Log in to your account') }}
-        </h1>
-        <p class="text-[var(--ui-text-muted)]">
-          {{ $t('Welcome back! Please enter your details.') }}
-        </p>
-      </div>
-    </div>
-
+  <AuthCard
+      :title="$t('Log in to your account')"
+      :description="$t('Welcome back! Please enter your details.')"
+  >
     <AuthLoginForm/>
 
     <div class="text-center">
-      <p class="text-sm text-[var(--ui-text-muted)]">
+      <p class="text-sm text-[var(--ui-text-dimmed)]">
         {{ $t('Don’t have an account?') }}
         <UButton
             :to="$localeRoute({name: 'register'})"
@@ -42,5 +24,5 @@ definePageMeta({
         />
       </p>
     </div>
-  </div>
+  </AuthCard>
 </template>

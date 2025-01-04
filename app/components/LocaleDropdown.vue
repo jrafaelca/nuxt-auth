@@ -12,9 +12,17 @@ const items = computed(() => locales.value
 </script>
 
 <template>
-  <div>
+  <ClientOnly>
     <UDropdownMenu :items="items">
-      <UButton variant="ghost" color="neutral" icon="i-lucide-languages"/>
+      <UButton
+          color="neutral"
+          variant="ghost"
+          icon="i-lucide-languages"
+      />
     </UDropdownMenu>
-  </div>
+
+    <template #fallback>
+      <div class="size-8"/>
+    </template>
+  </ClientOnly>
 </template>

@@ -77,7 +77,7 @@ async function onSubmit(event) {
 
       <UButton
           :to="$localeRoute({name: 'forgot-password'})"
-          :label="$t('Forgot password')"
+          :label="$t('Forgot password?')"
           variant="link"
           class="p-0"
       />

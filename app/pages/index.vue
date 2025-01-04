@@ -1,14 +1,12 @@
 <script setup>
 definePageMeta({
-  middleware: ['auth', 'verified'],
   title: 'Dashboard',
+  middleware: ['auth', 'verified'],
 })
-
-const {logout} = useAuth()
 </script>
 
 <template>
-  <div>
-    <UButton @click="logout">{{ $t('Logout') }}</UButton>
+  <div class="flex-1 pt-8 pb-12 px-4 lg:px-8 overflow-y-auto">
+    <PageHeader :title="$t('Dashboard')"/>
   </div>
 </template>
