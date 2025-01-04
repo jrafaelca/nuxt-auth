@@ -25,6 +25,7 @@ useHead({
 
 <template>
   <UApp :locale="locales[locale]">
+    <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
