@@ -1,38 +1,32 @@
 <script setup>
+import * as locales from '@nuxt/ui/locale'
+
 const route = useRoute()
 const config = useRuntimeConfig()
-const {t} = useI18n()
+const {locale, t} = useI18n()
+
+const lang = computed(() => locales[locale.value].code)
+const dir = computed(() => locales[locale.value].dir)
 
 useHead({
-  title: () => t(route.meta?.title) ?? '',
-  titleTemplate: () => {
-    return t(route.meta?.title)
-        ? `%s | ${config.public.appName}`
-        : config.public.appName
-  },
+  title: () => route.meta?.title ? t(route.meta.title) : '',
+  titleTemplate: () => route.meta?.title
+      ? `%s | ${config.public.appName}`
+      : config.public.appName,
   htmlAttrs: {
-    lang: config.public.appLocale,
+    lang,
+    dir
   },
   meta: [
     {charset: 'utf-8'},
-    {name: 'viewport', content: 'width=device-width, initial-scale=1'},
   ],
 })
 </script>
 
 <template>
-  <UApp>
+  <UApp :locale="locales[locale]">
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
   </UApp>
 </template>
-
-<style>
-@import "tailwindcss";
-@import "@nuxt/ui";
-
-@theme {
-  --font-family-sans: 'Inter', sans-serif;
-}
-</style>

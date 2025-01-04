@@ -4,22 +4,7 @@
 
 <template>
   <div id="layout" class="min-h-screen">
-    <header>
-      <UContainer>
-        <div class="flex items-center justify-between h-16">
-          <NuxtLink :to="$localeRoute({ name: 'login'})">
-            <Logo class="h-8 text-[var(--ui-primary)]"/>
-          </NuxtLink>
-
-          <div class="flex gap-2">
-            <LocaleDropdown/>
-            <ColorModeDropdown/>
-          </div>
-        </div>
-      </UContainer>
-    </header>
-
-    <main class="mt-12 md:mt-24">
+    <main class="pt-12 md:pt-24">
       <UContainer>
         <div class="w-full mx-auto max-w-sm">
           <slot/>

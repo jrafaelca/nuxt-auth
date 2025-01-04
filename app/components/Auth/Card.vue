@@ -12,33 +12,59 @@ defineProps({
     type: String,
     default: ''
   },
+  backeable: {
+    type: Boolean,
+    default: false
+  }
 })
+
+const appConfig = useAppConfig();
+
 </script>
 
 <template>
   <div class="space-y-8">
-    <div class="text-center space-y-6">
+    <div v-if="title || description || icon || $slots.icon" class="text-center space-y-6">
+      <UButton
+          v-if="icon"
+          :to="$localeRoute({name: 'login'})"
+          variant="outline"
+          color="neutral"
+          :icon="icon"
+          size="xl"
+          class="p-4"
+      />
 
-      <div
-          v-if="icon || $slots.icon"
-          class="inline-flex p-3.5 border border-2 bg-[var(--ui-bg)] border-[var(--ui-border)] rounded-[var(--ui-radius)]"
-      >
-        <UIcon v-if="icon" :name="icon" class="size-6"/>
-
-        <slot name="icon"/>
-      </div>
+      <NuxtLink v-else :to="$localeRoute({name: 'login'})" class="block">
+        <Logo class="h-8 text-[var(--ui-primary)] mx-auto"/>
+      </NuxtLink>
 
       <div v-if="title || description" class="space-y-3">
         <h1 v-if="title" class="font-semibold text-2xl md:text-3xl">
           {{ title }}
         </h1>
 
-        <p v-if="description" class="text-[var(--ui-text-muted)]">
+        <p v-if="description" class="text-[var(--ui-text-dimmed)]">
           {{ description }}
         </p>
       </div>
     </div>
 
     <slot/>
+
+    <div v-if="backeable" class="text-center">
+      <UButton
+          :to="$localeRoute({name: 'login'})"
+          :label="$t('Back to log in')"
+          variant="link"
+          color="neutral"
+          icon="i-lucide-arrow-left"
+      />
+    </div>
+
+    <div v-if="appConfig.localSwitch || appConfig.colorSwitch" class="flex items-center justify-center gap-2">
+      <LocaleDropdown v-if="appConfig.localSwitch"/>
+      <ColorModeButton v-if="appConfig.colorSwitch"/>
+    </div>
   </div>
 </template>
