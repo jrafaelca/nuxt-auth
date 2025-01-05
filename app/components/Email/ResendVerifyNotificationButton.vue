@@ -5,7 +5,7 @@ const toast = useToast()
 
 async function resendVerifyNotification() {
   try {
-    await $laravelClient('/v1/auth/email/verification-notification', {
+    await $laravelClient('/v1/auth/email/verify/resend', {
       method: 'POST',
     })
 
