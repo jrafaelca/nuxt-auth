@@ -12,7 +12,7 @@ const items = computed(() => [{
 </script>
 
 <template>
-  <UDropdownMenu :items="items" :ui="{content: 'w-64'}">
+  <UDropdownMenu :items="items" :ui="{content: 'w-58'}">
     <UButton
         v-if="user"
         variant="ghost"
@@ -22,7 +22,7 @@ const items = computed(() => [{
         class="w-full"
         :ui="{trailingIcon: 'ml-auto'}"
     >
-      <div class="whitespace-nowrap hidden md:block">
+      <div class="whitespace-nowrap">
         {{ user.name }}
       </div>
     </UButton>
