@@ -17,7 +17,7 @@ async function onSubmit(event) {
   const formData = event.data
 
   try {
-    await $laravelClient('/v1/auth/register', {
+    await $laravelClient('/register', {
       method: 'POST',
       body: formData,
     })

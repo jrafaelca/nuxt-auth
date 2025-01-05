@@ -31,7 +31,7 @@ async function onSubmit(event) {
   const formData = event.data
 
   try {
-    await $laravelClient('/v1/auth/reset-password', {
+    await $laravelClient('/reset-password', {
       method: 'POST',
       body: formData,
     })

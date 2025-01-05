@@ -6,7 +6,7 @@ export const useAuth = () => {
 
     async function fetchUser() {
         try {
-            const {data} = await $laravelClient('/v1/auth/user')
+            const {data} = await $laravelClient('/v1/user')
 
             user.value = data
         } catch (error) {
@@ -16,7 +16,7 @@ export const useAuth = () => {
 
     async function login(credentials) {
         try {
-            const response = await $laravelClient('/v1/auth/login', {
+            const response = await $laravelClient('/login', {
                 method: 'POST',
                 body: credentials,
             })
@@ -31,8 +31,8 @@ export const useAuth = () => {
 
     async function logout() {
         try {
-            await $laravelClient('/v1/auth/logout', {
-                method: 'DELETE',
+            await $laravelClient('/logout', {
+                method: 'POST',
             })
 
             user.value = null
