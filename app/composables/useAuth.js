@@ -32,7 +32,7 @@ export const useAuth = () => {
     async function logout() {
         try {
             await $laravelClient('/v1/auth/logout', {
-                method: 'POST',
+                method: 'DELETE',
             })
 
             user.value = null
