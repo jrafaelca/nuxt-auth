@@ -10,7 +10,7 @@ definePageMeta({
       const signature = to.query.signature
 
       try {
-        await $laravelClient(`/v1/auth/email/verify/${id}/${hash}?expires=${expires}&signature=${signature}`, {
+        await $laravelClient(`/email/verify/${id}/${hash}?expires=${expires}&signature=${signature}`, {
           method: 'GET',
         })
 
