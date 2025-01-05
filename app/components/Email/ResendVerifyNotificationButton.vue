@@ -29,4 +29,3 @@ async function resendVerifyNotification() {
       @click="resendVerifyNotification"
   />
 </template>
-
