@@ -1,11 +1,9 @@
 export default defineAppConfig({
     localSwitch: true,
     colorSwitch: true,
-    navigationItems: [{
-        label: 'Dashboard',
-        icon: 'i-lucide-layout-dashboard',
-        route: {name: 'index'},
-    }],
+    navigationItems: [
+        //
+    ],
     ui: {
         colors: {
             primary: 'green',
