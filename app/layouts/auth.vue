@@ -17,13 +17,13 @@
 
 <style scoped>
 #layout {
-  background-image: url('@/assets/img/patterns/grid.png');
+  background-image: url('~/assets/img/patterns/grid.png');
   background-repeat: no-repeat;
   background-position: center -100px;
   background-size: 768px;
 }
 
 .dark #layout {
-  background-image: url('@/assets/img/patterns/grid-dark.png');
+  background-image: url('~/assets/img/patterns/grid-dark.png');
 }
 </style>
