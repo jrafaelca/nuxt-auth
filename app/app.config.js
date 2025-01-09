@@ -8,12 +8,16 @@ export default defineAppConfig({
         verifyEmail: true,
     },
     navigationItems: [
-        //
+        {
+            label: 'Dashboard',
+            icon: 'i-lucide-layout-dashboard',
+            route: {name: 'index'}
+        }
     ],
     ui: {
         colors: {
-            primary: 'green',
-            neutral: 'slate'
+            // primary: 'green',
+            // neutral: 'slate'
         }
     }
 })

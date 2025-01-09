@@ -5,7 +5,7 @@ export default {
         const appConfig = useAppConfig();
         const getRouteBaseName = useRouteBaseName()
 
-        const newRoutes = _routes.filter((route) => {
+        return _routes.filter((route) => {
             if (!appConfig.auth.register && getRouteBaseName(route) === 'register') return false
             if (!appConfig.auth.forgotPassword && getRouteBaseName(route) === 'forgot-password') return false
             if (!appConfig.auth.forgotPassword && getRouteBaseName(route) === 'forgot-password') return false
@@ -15,9 +15,5 @@ export default {
 
             return true
         });
-
-        console.log(newRoutes)
-
-        return newRoutes;
     },
 } satisfies RouterConfig
