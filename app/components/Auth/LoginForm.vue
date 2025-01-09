@@ -1,4 +1,6 @@
 <script setup>
+const appConfig = useAppConfig();
+
 const {login} = useAuth()
 const {mapFormErrors} = useLaravel()
 
@@ -76,6 +78,7 @@ async function onSubmit(event) {
       <UCheckbox :label="$t('Remember me')" name="remember" v-model="state.remember"/>
 
       <UButton
+          v-if="appConfig.auth.forgotPassword"
           :to="$localeRoute({name: 'forgot-password'})"
           :label="$t('Forgot password?')"
           variant="link"

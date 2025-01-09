@@ -12,7 +12,6 @@ definePageMeta({
       :title="$t('Check your email')"
       :description="$t('We send a verification link to the email address you provided.')"
       icon="i-lucide-mail"
-      backeable
   >
     <EmailResendVerifyNotificationButton/>
   </AuthCard>

@@ -4,6 +4,8 @@ definePageMeta({
   middleware: 'guest',
   layout: 'auth',
 })
+
+const appConfig = useAppConfig()
 </script>
 
 <template>
@@ -13,7 +15,7 @@ definePageMeta({
   >
     <AuthLoginForm/>
 
-    <div class="text-center">
+    <div v-if="appConfig.auth.register" class="text-center">
       <p class="text-sm text-[var(--ui-text-dimmed)]">
         {{ $t('Don’t have an account?') }}
         <UButton
