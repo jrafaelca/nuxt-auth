@@ -9,7 +9,7 @@ export default defineNuxtConfig({
         },
     },
     modules: ['@nuxt/ui', '@nuxtjs/i18n'],
-    css: ['@/assets/css/main.css'],
+    css: ['~/assets/css/main.css'],
     i18n: {
         locales: [{
             code: 'en',
