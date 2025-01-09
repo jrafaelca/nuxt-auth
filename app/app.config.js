@@ -1,6 +1,12 @@
 export default defineAppConfig({
     localSwitch: true,
     colorSwitch: true,
+    auth: {
+        register: true,
+        forgotPassword: true,
+        resetPassword: true,
+        verifyEmail: true,
+    },
     navigationItems: [
         //
     ],
