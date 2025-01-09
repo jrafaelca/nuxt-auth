@@ -71,8 +71,8 @@ watch(() => router.currentRoute.value, () => drawerOpen.value = false);
             </template>
           </UDrawer>
 
-          <h1 class="nui-heading text-2xl font-light leading-6 text-neutral-800 hidden md:block dark:text-white">
-            {{ route.meta?.title }}
+          <h1 v-if="route.meta?.title" class="nui-heading text-2xl font-light leading-6 text-neutral-800 hidden md:block dark:text-white">
+            {{ $t(route.meta?.title) }}
           </h1>
 
           <div class="ms-auto"></div>
