@@ -7,11 +7,18 @@ const {t} = useI18n()
 
 const drawerOpen = ref(false);
 
-const navigationItems = computed(() => appConfig.navigationItems.map((item) => ({
-  label: t(item.label),
-  icon: item.icon,
-  to: localeRoute(item.route),
-})))
+const navigationItems = computed(() =>
+    appConfig.navigationItems.map(item => ({
+      ...item,
+      label: t(item.label),
+      route: item.route ? localeRoute(item.route) : undefined,
+      children: item.children ? item.children.map(child => ({
+        ...child,
+        label: t(child.label),
+        route: child.route ? localeRoute(child.route) : undefined,
+      })) : undefined,
+    }))
+);
 
 watch(() => router.currentRoute.value, () => drawerOpen.value = false);
 </script>
@@ -71,7 +78,8 @@ watch(() => router.currentRoute.value, () => drawerOpen.value = false);
             </template>
           </UDrawer>
 
-          <h1 v-if="route.meta?.title" class="nui-heading text-2xl font-light leading-6 text-neutral-800 hidden md:block dark:text-white">
+          <h1 v-if="route.meta?.title"
+              class="nui-heading text-2xl font-light leading-6 text-neutral-800 hidden md:block dark:text-white">
             {{ $t(route.meta?.title) }}
           </h1>
 
