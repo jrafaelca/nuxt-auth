@@ -11,11 +11,11 @@ const navigationItems = computed(() =>
     appConfig.navigationItems.map(item => ({
       ...item,
       label: t(item.label),
-      route: item.route ? localeRoute(item.route) : undefined,
+      to: item.route ? localeRoute(item.route) : undefined,
       children: item.children ? item.children.map(child => ({
         ...child,
         label: t(child.label),
-        route: child.route ? localeRoute(child.route) : undefined,
+        to: child.route ? localeRoute(child.route) : undefined,
       })) : undefined,
     }))
 );
