@@ -1,3 +1,78 @@
 {
-
+  "auth": {
+    "action": {
+      "back_login": "Volver a iniciar sesión",
+      "forgot_password": "¿Olvidaste tu contraseña?",
+      "login": "Iniciar sesión",
+      "register": "Registrarse",
+      "request_password": "Solicitar contraseña",
+      "reset_password": "Restablecer contraseña",
+      "send_email_verify": "Reenviar correo de verificación"
+    },
+    "description": {
+      "email_verify": "Hemos enviado un enlace de verificación a la dirección de correo que proporcionaste.",
+      "forgot_password": "No te preocupes, te enviaremos instrucciones para restablecerla.",
+      "login": "¡Bienvenido de nuevo! Por favor, ingresa tus datos.",
+      "register": "Regístrate en menos de 2 minutos.",
+      "reset_password": "Tu nueva contraseña debe ser diferente a las que has usado anteriormente."
+    },
+    "help": {
+      "password": "Debe tener al menos 8 caracteres."
+    },
+    "label": {
+      "email": "Correo electrónico",
+      "name": "Nombre",
+      "password": "Contraseña",
+      "password_confirmation": "Confirmar contraseña",
+      "remember": "Recuérdame"
+    },
+    "notification": {
+      "password_updated": {
+        "description": "Tu contraseña se ha cambiado correctamente. Ahora puedes iniciar sesión con tu nueva contraseña.",
+        "title": "Contraseña actualizada"
+      },
+      "request_email_verify": {
+        "description": "Por favor, revisa tu bandeja de entrada para encontrar el correo de verificación y sigue las instrucciones para verificar tu cuenta.",
+        "title": "Correo de verificación reenviado"
+      },
+      "request_password": {
+        "description": "Revisa tu correo electrónico para continuar con el proceso de recuperación de contraseña.",
+        "title": "Solicitud enviada"
+      }
+    },
+    "page_title": {
+      "email_verify": "Verificación de correo",
+      "forgot_password": "Olvidé mi contraseña",
+      "login": "Iniciar sesión",
+      "register": "Registrarse",
+      "reset_password": "Restablecer contraseña"
+    },
+    "placeholder": {
+      "email": "Ingresa tu correo electrónico",
+      "name": "Ingresa tu nombre",
+      "password": "Ingresa tu contraseña",
+      "password_confirmation": "Ingresa nuevamente tu contraseña"
+    },
+    "text": {
+      "hide_password": "Ocultar contraseña",
+      "registered": "¿Ya tienes una cuenta?",
+      "show_password": "Mostrar contraseña",
+      "unregistered": "¿No tienes una cuenta?"
+    },
+    "title": {
+      "email_verify": "Revisa tu correo",
+      "forgot_password": "¿Olvidaste tu contraseña?",
+      "login": "Inicia sesión en tu cuenta",
+      "register": "Crea una cuenta",
+      "reset_password": "Establece una nueva contraseña"
+    }
+  },
+  "dashboard": {
+    "label": {
+      "open_sidebar": "Abrir barra lateral"
+    },
+    "menu": {
+      "dashboard": "Panel de control"
+    }
+  }
 }
