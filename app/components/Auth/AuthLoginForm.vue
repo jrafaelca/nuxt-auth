@@ -1,12 +1,14 @@
 <script setup>
-const {$laravelClient} = useNuxtApp()
+const appConfig = useAppConfig();
+
+const {login} = useAuth()
 const {mapFormErrors} = useLaravel()
 
 const form = useTemplateRef('form')
 const state = reactive({
-  name: undefined,
   email: undefined,
   password: undefined,
+  remember: false,
 })
 
 const showPassword = ref(false)
@@ -17,12 +19,7 @@ async function onSubmit(event) {
   const formData = event.data
 
   try {
-    await $laravelClient('/register', {
-      method: 'POST',
-      body: formData,
-    })
-
-    navigateTo('/', {replace: true})
+    await login(formData)
   } catch (error) {
     if (error?.response.status === 422) {
       form.value?.setErrors(mapFormErrors(error.response._data.errors))
@@ -41,34 +38,24 @@ async function onSubmit(event) {
       @submit="onSubmit"
   >
     <div class="space-y-5">
-      <UFormField name="name" :label="$t('Name')">
-        <UInput
-            type="name"
-            v-model="state.name"
-            :placeholder="$t('Enter your name')"
-            class="w-full"
-            autofocus
-            autocomplete="name"
-        />
-      </UFormField>
-
-      <UFormField name="email" :label="$t('Email')">
+      <UFormField name="email" :label="$t('auth.label.email')">
         <UInput
             type="email"
             v-model="state.email"
-            :placeholder="$t('Enter your email')"
+            :placeholder="$t('auth.placeholder.email')"
             class="w-full"
+            autofocus
             autocomplete="username"
         />
       </UFormField>
 
-      <UFormField name="password" :label="$t('Password')" :help="$t('Must be at least 8 characters.')">
+      <UFormField name="password" :label="$t('auth.label.password')">
         <UInput
             :type="showPassword ? 'text' : 'password'"
             v-model="state.password"
-            :placeholder="$t('Enter a password')"
+            :placeholder="$t('auth.placeholder.password')"
             class="w-full"
-            autocomplete="new-password"
+            autocomplete="current-password"
             :ui="{ trailing: 'pr-0.5' }"
         >
           <template #trailing>
@@ -77,7 +64,7 @@ async function onSubmit(event) {
                 variant="link"
                 size="sm"
                 :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
-                :aria-label="showPassword ? $t('Hide password') : $t('Show password')"
+                :aria-label="$t(showPassword ? 'auth.text.hide_password' : 'auth.text.show_password')"
                 :aria-pressed="showPassword"
                 aria-controls="password"
                 @click="showPassword = !showPassword"
@@ -87,9 +74,21 @@ async function onSubmit(event) {
       </UFormField>
     </div>
 
+    <div class="flex items-center justify-between">
+      <UCheckbox :label="$t('auth.label.remember')" name="remember" v-model="state.remember"/>
+
+      <UButton
+          v-if="appConfig.auth.forgotPassword"
+          :to="$localeRoute({name: 'forgot-password'})"
+          :label="$t('auth.action.forgot_password')"
+          variant="link"
+          class="p-0"
+      />
+    </div>
+
     <UButton
         type="submit"
-        :label="$t('Get started')"
+        :label="$t('auth.action.login')"
         size="lg"
         block
     />
