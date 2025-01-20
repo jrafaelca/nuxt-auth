@@ -7,11 +7,14 @@ export default defineAppConfig({
         resetPassword: true,
         verifyEmail: true,
     },
-    navigationItems: [{
+    mainNavigationItems: [{
         label: 'Dashboard',
         icon: 'i-lucide-layout-dashboard',
         route: {name: 'index'}
     }],
+    secondaryNavigationItems: [
+        //
+    ],
     ui: {
         colors: {
             primary: 'green',

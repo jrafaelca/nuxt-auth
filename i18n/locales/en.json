@@ -1,42 +1,75 @@
 {
-  "Already have an account?": "Already have an account?",
-  "Back to log in": "Back to log in",
-  "Check your email": "Check your email",
-  "Check your email to continue with the password recovery process.": "Check your email to continue with the password recovery process.",
-  "Confirm password": "Confirm password",
-  "Create an account": "Create an account",
-  "Dashboard": "Dashboard",
-  "Don’t have an account?": "Don’t have an account?",
-  "Email": "Email",
-  "Email verification": "Email verification",
-  "Enter a password": "Enter a password",
-  "Enter again your password": "Enter again your password",
-  "Enter your email": "Enter your email",
-  "Enter your name": "Enter your name",
-  "Enter your password": "Enter your password",
-  "Forgot password?": "Forgot password?",
-  "Get started": "Get started",
-  "Hide password": "Hide password",
-  "Log in": "Log in",
-  "Log in to your account": "Log in to your account",
-  "Logout": "Logout",
-  "Must be at least 8 characters.": "Must be at least 8 characters.",
-  "Name": "Name",
-  "No worries, we’ll send you reset instructions.": "No worries, we’ll send you reset instructions.",
-  "Password": "Password",
-  "Password updated": "Password updated",
-  "Please check your inbox for the verification email and follow the instructions to verify your account.": "Please check your inbox for the verification email and follow the instructions to verify your account.",
-  "Remember me": "Remember me",
-  "Request sent": "Request sent",
-  "Resend Verification Email": "Resend Verification Email",
-  "Reset password": "Reset password",
-  "Set new password": "Set new password",
-  "Show password": "Show password",
-  "Sign in": "Sign in",
-  "Sign up": "Sign up",
-  "Sign up in less than 2 minutes.": "Sign up in less than 2 minutes.",
-  "Verification email resent": "Verification email resent",
-  "Welcome back! Please enter your details.": "Welcome back! Please enter your details.",
-  "Your new password must be different to previously used passwords.": "Your new password must be different to previously used passwords.",
-  "Your password has been successfully changed. You can now log in with your new password.": "Your password has been successfully changed. You can now log in with your new password."
+  "dashboard": {
+    "label": {
+      "open_sidebar": "Open sidebar"
+    }
+  },
+  "auth": {
+    "action": {
+      "back_login": "Back to log in",
+      "forgot_password": "Forgot password?",
+      "login": "Sign in",
+      "register": "Sign up",
+      "request_password": "Request password",
+      "reset_password": "Reset password",
+      "send_email_verify": "Resend Verification Email"
+    },
+    "description": {
+      "forgot_password": "No worries, we’ll send you reset instructions.",
+      "login": "Welcome back! Please enter your details.",
+      "register": "Sign up in less than 2 minutes.",
+      "reset_password": "Your new password must be different to previously used passwords.",
+      "email_verify": "We send a verification link to the email address you provided."
+    },
+    "help": {
+      "password": "Must be at least 8 characters."
+    },
+    "label": {
+      "email": "Email",
+      "name": "Name",
+      "password": "Password",
+      "remember": "Remember me",
+      "password_confirmation": "Confirm password"
+    },
+    "page_title": {
+      "forgot_password": "Forgot password",
+      "login": "Sign in",
+      "register": "Sign up",
+      "reset_password": "Reset password",
+      "email_verify": "Email verification"
+    },
+    "placeholder": {
+      "email": "Enter your email",
+      "name": "Enter your name",
+      "password_confirmation": "Enter again your password",
+      "password": "Enter your password"
+    },
+    "text": {
+      "hide_password": "Hide Password",
+      "registered": "Already have an account?",
+      "show_password": "Show password",
+      "unregistered": "Don’t have an account?"
+    },
+    "title": {
+      "reset_password": "Set new password",
+      "forgot_password": "Forgot password?",
+      "login": "Log in to your account",
+      "register": "Create an account",
+      "email_verify": "Check your email"
+    },
+    "notification": {
+      "request_password": {
+        "title": "Request sent",
+        "description": "Check your email to continue with the password recovery process."
+      },
+      "password_updated": {
+        "title": "Password updated",
+        "description": "Your password has been successfully changed. You can now log in with your new password."
+      },
+      "request_email_verify": {
+        "title": "Verification email resent",
+        "description": "Please check your inbox for the verification email and follow the instructions to verify your account."
+      }
+    }
+  }
 }

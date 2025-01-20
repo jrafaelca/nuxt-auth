@@ -15,12 +15,11 @@ const items = computed(() => [{
   <UDropdownMenu :items="items" :ui="{content: 'w-58'}">
     <UButton
         v-if="user"
-        variant="ghost"
         color="neutral"
+        variant="ghost"
         icon="i-lucide-circle-user"
         trailing-icon="i-lucide-ellipsis-vertical"
-        class="w-full"
-        :ui="{trailingIcon: 'ml-auto'}"
+        :ui="{base: 'w-full', trailingIcon: 'ml-auto'}"
     >
       <div class="whitespace-nowrap">
         {{ user.name }}
