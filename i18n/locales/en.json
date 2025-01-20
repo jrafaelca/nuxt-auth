@@ -4,6 +4,7 @@
       "back_login": "Back to log in",
       "forgot_password": "Forgot password?",
       "login": "Sign in",
+      "logout": "Logout",
       "register": "Sign up",
       "request_password": "Request password",
       "reset_password": "Reset password",
@@ -72,7 +73,13 @@
       "open_sidebar": "Open sidebar"
     },
     "menu": {
-      "dashboard": "Dashboard"
+      "home": "Dashboard"
+    },
+    "page_title": {
+      "main": "Dashboard"
+    },
+    "title": {
+      "main": "Dashboard"
     }
   }
 }
