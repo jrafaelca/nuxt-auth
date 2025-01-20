@@ -8,7 +8,7 @@ export default defineAppConfig({
         verifyEmail: true,
     },
     mainNavigationItems: [{
-        label: 'dashboard.menu.dashboard',
+        label: 'dashboard.menu.home',
         icon: 'i-lucide-layout-dashboard',
         route: {name: 'index'}
     }],

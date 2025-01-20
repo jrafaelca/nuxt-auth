@@ -4,6 +4,7 @@
       "back_login": "Volver a iniciar sesión",
       "forgot_password": "¿Olvidaste tu contraseña?",
       "login": "Iniciar sesión",
+      "logout": "Cerrar sesión",
       "register": "Registrarse",
       "request_password": "Solicitar contraseña",
       "reset_password": "Restablecer contraseña",
@@ -72,7 +73,13 @@
       "open_sidebar": "Abrir barra lateral"
     },
     "menu": {
-      "dashboard": "Panel de control"
+      "home": "Panel de control"
+    },
+    "page_title": {
+      "main": "Panel de control"
+    },
+    "title": {
+      "main": "Panel de control"
     }
   }
 }

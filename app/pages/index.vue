@@ -1,12 +1,12 @@
 <script setup>
 definePageMeta({
-  title: 'Dashboard',
+  title: 'dashboard.page_title.main',
   middleware: ['auth', 'verified'],
 })
 </script>
 
 <template>
   <div>
-    {{ $t('Dashboard') }}
+    {{ $t('dashboard.title.main') }}
   </div>
 </template>
