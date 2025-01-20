@@ -3,8 +3,8 @@ import {useI18n} from 'vue-i18n';
 export const useEnum = (items) => {
     const {t} = useI18n();
 
-    const cases = items.reduce((acc, {value, label}) => {
-        acc[value.toUpperCase()] = {value, label};
+    const cases = items.reduce((acc, {value, label,color, icon}) => {
+        acc[value.toUpperCase()] = {value, label, color, icon};
         return acc;
     }, {});
 
