@@ -41,13 +41,6 @@
         "title": "Request sent"
       }
     },
-    "page_title": {
-      "email_verify": "Email verification",
-      "forgot_password": "Forgot password",
-      "login": "Sign in",
-      "register": "Sign up",
-      "reset_password": "Reset password"
-    },
     "placeholder": {
       "email": "Enter your email",
       "name": "Enter your name",
@@ -75,11 +68,8 @@
     "menu": {
       "home": "Dashboard"
     },
-    "page_title": {
-      "main": "Dashboard"
-    },
     "title": {
-      "main": "Dashboard"
+      "home": "Dashboard"
     }
   }
 }

@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.page_title.email_verify',
+  title: 'auth.title.email_verify',
   middleware: 'auth',
   layout: 'auth',
 })

@@ -1,56 +1,92 @@
 <script setup>
 const appConfig = useAppConfig();
-const localeRoute = useLocaleRoute();
 const router = useRouter();
-const {t} = useI18n();
+const route = useRoute();
 
-const drawerOpen = ref(false);
+const {user} = useAuth()
 
-// Helper function to translate and map navigation items
-const mapNavigationItems = (items) =>
-    items.map((item) => ({
-      ...item,
-      label: t(item.label),
-      to: item.route ? localeRoute(item.route) : undefined,
-      children: item.children ? mapNavigationItems(item.children) : undefined,
-    }));
+const isCollapsed = ref(false);
+const isDrawerOpen = ref(false);
 
-// Computed properties for navigation items
-const mainNavigationItems = computed(() => mapNavigationItems(appConfig.mainNavigationItems));
-const secondaryNavigationItems = computed(() => mapNavigationItems(appConfig.secondaryNavigationItems));
+function handleToggleCollapsed() {
+  isCollapsed.value = !isCollapsed.value;
+}
 
-// Close drawer when route changes
 watch(() => router.currentRoute.value, () => {
-  drawerOpen.value = false;
+  isDrawerOpen.value = false;
 });
 </script>
 
 <template>
-  <DashboardLayout>
-    <DashboardPanel class="lg:w-62">
-      <div class="h-16 flex-shrink-0 flex items-center px-4 gap-x-4 min-w-0">
-        <NuxtLink :to="$localeRoute('index')">
-          <Logo class="h-6 text-[var(--ui-primary)]"/>
-        </NuxtLink>
-      </div>
+  <div class="pb-20">
+    <UDrawer v-model:open="isDrawerOpen" direction="left" :handle="false">
+      <template #body>
+        <DashboardSidebar width="256px"/>
+      </template>
+    </UDrawer>
 
-      <DashboardSidebar>
-        <UNavigationMenu orientation="vertical" :items="mainNavigationItems" class="relative !min-h-[auto] !min-w-[auto]"/>
+    <DashboardSidebar
+        :collapsed="isCollapsed"
+        class="fixed start-0 top-0 border-r border-[var(--ui-border)] z-[60] -translate-x-full lg:translate-x-0"
+    >
+      <template #footer>
+        <UserDropdown
+            :label="!isCollapsed"
+            variant="ghost"
+            :ui="{base: 'w-full'}"
+        >
+          <div
+              v-if="!isCollapsed"
+              class="whitespace-nowrap"
+          >
+            {{ user?.name }}
+          </div>
+        </UserDropdown>
+      </template>
+    </DashboardSidebar>
 
-        <USeparator/>
+    <div
+        class="relative min-h-screen w-full px-4 overflow-x-hidden transition-all duration-300 xl:px-10 "
+        :class="[
+            {'lg:max-w-[calc(100%_-_280px)] lg:ms-[280px]': !isCollapsed },
+            {'lg:max-w-[calc(100%_-_75px)] lg:ms-[75px]': isCollapsed },
+        ]"
+    >
+      <UContainer>
+        <div class="relative h-16 mb-5 flex items-center gap-2">
+          <UButton
+              color="neutral"
+              variant="ghost"
+              size="xl"
+              :icon="isCollapsed ? 'i-lucide-align-left' : 'i-lucide-chevron-left'"
+              class="hidden md:inline-flex"
+              @click="handleToggleCollapsed"
+          />
 
-        <div class="flex-1"/>
+          <UButton
+              color="neutral"
+              variant="ghost"
+              icon="i-lucide-menu"
+              class="md:hidden"
+              @click="isDrawerOpen = true"
+          />
 
-        <UNavigationMenu orientation="vertical" :items="secondaryNavigationItems"/>
+          <h1 v-if="route.meta?.title" class="text-2xl font-light hidden md:block">
+            {{ $t(route.meta?.title) }}
+          </h1>
 
-        <USeparator/>
+          <div class="ms-auto"/>
 
-        <template #footer>
-          <UserDropdown/>
-        </template>
-      </DashboardSidebar>
-    </DashboardPanel>
+          <LocaleDropdown v-if="appConfig.localSwitch"/>
+          <ColorModeButton v-if="appConfig.colorSwitch"/>
+          <UserDropdown variant="link"
+          />
+        </div>
 
-    <slot/>
-  </DashboardLayout>
+        <div>
+          <slot/>
+        </div>
+      </UContainer>
+    </div>
+  </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.page_title.login',
+  title: 'auth.title.login',
   middleware: 'guest',
   layout: 'auth',
 })

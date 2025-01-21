@@ -41,13 +41,6 @@
         "title": "Solicitud enviada"
       }
     },
-    "page_title": {
-      "email_verify": "Verificación de correo",
-      "forgot_password": "Olvidé mi contraseña",
-      "login": "Iniciar sesión",
-      "register": "Registrarse",
-      "reset_password": "Restablecer contraseña"
-    },
     "placeholder": {
       "email": "Ingresa tu correo electrónico",
       "name": "Ingresa tu nombre",
@@ -75,11 +68,8 @@
     "menu": {
       "home": "Panel de control"
     },
-    "page_title": {
-      "main": "Panel de control"
-    },
     "title": {
-      "main": "Panel de control"
+      "home": "Panel de control"
     }
   }
 }

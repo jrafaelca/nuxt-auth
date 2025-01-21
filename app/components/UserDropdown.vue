@@ -12,18 +12,13 @@ const items = computed(() => [{
 </script>
 
 <template>
-  <UDropdownMenu :items="items" :ui="{content: 'w-58'}">
+  <UDropdownMenu :items="items">
     <UButton
-        v-if="user"
         color="neutral"
-        variant="ghost"
-        icon="i-lucide-circle-user"
-        trailing-icon="i-lucide-ellipsis-vertical"
-        :ui="{base: 'w-full', trailingIcon: 'ml-auto'}"
+        :avatar="{alt: user.name, size: 'md'}"
+        v-bind="$attrs"
     >
-      <div class="whitespace-nowrap">
-        {{ user.name }}
-      </div>
+      <slot/>
     </UButton>
   </UDropdownMenu>
 </template>

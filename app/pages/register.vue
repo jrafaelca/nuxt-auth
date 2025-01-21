@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.page_title.register',
+  title: 'auth.title.register',
   middleware: 'guest',
   layout: 'auth',
 })
