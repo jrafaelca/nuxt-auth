@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.page_title.reset_password',
+  title: 'auth.title.reset_password',
   middleware: 'guest',
   layout: 'auth',
 })

@@ -1,12 +1,11 @@
 <script setup>
 definePageMeta({
-  title: 'dashboard.page_title.main',
+  title: 'dashboard.title.home',
   middleware: ['auth', 'verified'],
 })
 </script>
 
 <template>
   <div>
-    {{ $t('dashboard.title.main') }}
   </div>
 </template>

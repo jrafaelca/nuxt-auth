@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.page_title.forgot_password',
+  title: 'auth.title.forgot_password',
   middleware: 'guest',
   layout: 'auth',
 })
