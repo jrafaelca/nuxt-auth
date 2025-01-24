@@ -40,11 +40,11 @@ const appConfig = useAppConfig();
       </NuxtLink>
 
       <div v-if="title || description" class="space-y-3">
-        <h1 v-if="title" class="font-semibold text-2xl md:text-3xl">
+        <h1 v-if="title" class="font-semibold text-2xl text-[var(--ui-text-highlighted)] md:text-3xl">
           {{ title }}
         </h1>
 
-        <p v-if="description" class="text-[var(--ui-text-dimmed)]">
+        <p v-if="description" class="text-[var(--ui-text-muted)]">
           {{ description }}
         </p>
       </div>
