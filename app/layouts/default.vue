@@ -30,15 +30,8 @@ watch(() => router.currentRoute.value, () => {
         class="fixed start-0 top-0 border-r border-[var(--ui-border)] z-[60] -translate-x-full lg:translate-x-0"
     >
       <template #footer>
-        <UserDropdown
-            :label="!isCollapsed"
-            variant="ghost"
-            :ui="{base: 'w-full'}"
-        >
-          <div
-              v-if="!isCollapsed"
-              class="whitespace-nowrap"
-          >
+        <UserDropdown variant="ghost" :ui="{base: 'w-full'}">
+          <div v-if="!isCollapsed" class="whitespace-nowrap">
             {{ user?.name }}
           </div>
         </UserDropdown>
@@ -71,7 +64,7 @@ watch(() => router.currentRoute.value, () => {
               @click="isDrawerOpen = true"
           />
 
-          <h1 v-if="route.meta?.title" class="text-2xl font-light hidden md:block">
+          <h1 v-if="route.meta?.title" class="text-2xl font-light text-[var(--ui-text-highlighted)] hidden md:block">
             {{ $t(route.meta?.title) }}
           </h1>
 
