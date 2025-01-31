@@ -6,7 +6,7 @@ defineProps({
   },
   collapsedWidth: {
     type: String,
-    default: '74px',
+    default: '65px',
   },
   collapsed: {
     type: Boolean,
@@ -37,7 +37,7 @@ const secondaryNavigationItems = computed(() => mapNavigationItems(appConfig.sec
       class="h-full flex flex-col transition-all duration-300"
       :style="{ width: collapsed ? collapsedWidth : width }"
   >
-    <div class="h-16 w-full flex items-center justify-between px-6">
+    <div class="h-16 w-full flex items-center justify-between px-5">
       <div class="flex items-center justify-center h-16 text-[var(--ui-primary)]">
         <NuxtLink
             v-if="!collapsed" :to="$localeRoute('index')"
@@ -89,7 +89,7 @@ const secondaryNavigationItems = computed(() => mapNavigationItems(appConfig.sec
         v-if="$slots.footer"
         class="h-16 w-full flex items-center gap-4 transition-all duration-150"
         :class="{
-          'px-2 justify-center': collapsed ,
+          'px-1.5 justify-center': collapsed ,
           'px-6': !collapsed
           }"
     >

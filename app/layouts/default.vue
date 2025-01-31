@@ -38,7 +38,7 @@ watch(() => router.currentRoute.value, () => {
         class="relative min-h-screen w-full overflow-x-hidden transition-all duration-300"
         :class="[
             {'lg:max-w-[calc(100%_-_280px)] lg:ms-[280px]': !isCollapsed },
-            {'lg:max-w-[calc(100%_-_75px)] lg:ms-[75px]': isCollapsed },
+            {'lg:max-w-[calc(100%_-_65px)] lg:ms-[65px]': isCollapsed },
         ]"
     >
       <UContainer>
