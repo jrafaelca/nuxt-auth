@@ -8,10 +8,6 @@ const {user} = useAuth()
 const isCollapsed = ref(false);
 const isDrawerOpen = ref(false);
 
-function handleToggleCollapsed() {
-  isCollapsed.value = !isCollapsed.value;
-}
-
 watch(() => router.currentRoute.value, () => {
   isDrawerOpen.value = false;
 });
@@ -26,7 +22,7 @@ watch(() => router.currentRoute.value, () => {
     </UDrawer>
 
     <DashboardSidebar
-        :collapsed="isCollapsed"
+        v-model:collapsed="isCollapsed"
         class="fixed start-0 top-0 border-r border-[var(--ui-border)] z-[60] -translate-x-full lg:translate-x-0"
     >
       <template #footer>
@@ -47,15 +43,6 @@ watch(() => router.currentRoute.value, () => {
     >
       <UContainer>
         <div class="relative h-16 mb-5 flex items-center gap-2">
-          <UButton
-              color="neutral"
-              variant="ghost"
-              size="xl"
-              :icon="isCollapsed ? 'i-lucide-align-left' : 'i-lucide-chevron-left'"
-              class="hidden md:inline-flex"
-              @click="handleToggleCollapsed"
-          />
-
           <UButton
               color="neutral"
               variant="ghost"

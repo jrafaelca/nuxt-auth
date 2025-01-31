@@ -14,10 +14,11 @@ defineProps({
   }
 })
 
+const emit = defineEmits(['update:collapse'])
+
 const appConfig = useAppConfig();
 const localeRoute = useLocaleRoute();
 const {t} = useI18n()
-const {user} = useAuth()
 
 const mapNavigationItems = (items) =>
     items.map((item) => ({
@@ -37,12 +38,28 @@ const secondaryNavigationItems = computed(() => mapNavigationItems(appConfig.sec
       :style="{ width: collapsed ? collapsedWidth : width }"
   >
     <div class="h-16 w-full flex items-center justify-between px-6">
-      <div class="flex items-center justify-center h-16">
-        <NuxtLink :to="$localeRoute('index')" class="flex items-center justify-center text-[var(--ui-primary)]">
-          <Logo v-if="!collapsed" class="h-6"/>
-          <LogoMini v-else class="h-6"/>
+      <div class="flex items-center justify-center h-16 text-[var(--ui-primary)]">
+        <NuxtLink
+            v-if="!collapsed" :to="$localeRoute('index')"
+            class="flex items-center justify-center "
+        >
+          <Logo class="h-6"/>
         </NuxtLink>
+
+        <LogoMini
+            v-else
+            class="h-6"
+            @click="$emit('update:collapsed', !collapsed)"
+        />
       </div>
+
+      <UButton
+          v-if="!collapsed"
+          color="neutral"
+          variant="link"
+          icon="i-lucide-square-chevron-left"
+          @click="$emit('update:collapsed', !collapsed)"
+      />
     </div>
 
     <div
