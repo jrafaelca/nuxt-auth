@@ -39,7 +39,7 @@ watch(() => router.currentRoute.value, () => {
     </DashboardSidebar>
 
     <div
-        class="relative min-h-screen w-full px-4 overflow-x-hidden transition-all duration-300 xl:px-10 "
+        class="relative min-h-screen w-full overflow-x-hidden transition-all duration-300"
         :class="[
             {'lg:max-w-[calc(100%_-_280px)] lg:ms-[280px]': !isCollapsed },
             {'lg:max-w-[calc(100%_-_75px)] lg:ms-[75px]': isCollapsed },
