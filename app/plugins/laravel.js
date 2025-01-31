@@ -6,7 +6,6 @@ const httpClient = () => {
         baseURL: config.public.apiBaseUrl,
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
         },
         credentials: 'include',
@@ -19,6 +18,10 @@ const httpClient = () => {
 
             if (csrfToken.value) {
                 options.headers.set('X-XSRF-TOKEN', csrfToken.value)
+            }
+
+            if (!(options.body instanceof FormData)) {
+                options.headers.set('Content-Type', 'application/json');
             }
         },
     })
