@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'dashboard.title.home',
+  title: 'title.dashboard',
   middleware: ['auth', 'verified'],
 })
 </script>

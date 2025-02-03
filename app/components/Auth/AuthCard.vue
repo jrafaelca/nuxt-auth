@@ -55,7 +55,7 @@ const appConfig = useAppConfig();
     <div v-if="backeable" class="text-center">
       <UButton
           :to="$localeRoute({name: 'login'})"
-          :label="$t('auth.action.back_login')"
+          :label="$t('action.back_login')"
           variant="link"
           color="neutral"
           icon="i-lucide-arrow-left"

@@ -37,8 +37,8 @@ async function onSubmit(event) {
     })
 
     toast.add({
-      title: t('auth.notification.update_password.title'),
-      description: t('auth.notification.update_password.description'),
+      title: t('title.update_password'),
+      description: t('description.update_password'),
       color: 'success',
       icon: 'i-lucide-circle-check'
     });
@@ -62,22 +62,22 @@ async function onSubmit(event) {
       @submit="onSubmit"
   >
     <div class="space-y-5">
-      <UFormField name="email" :label="$t('auth.label.email')">
+      <UFormField name="email" :label="$t('label.email')">
         <UInput
             type="email"
             v-model="state.email"
-            :placeholder="$t('auth.placeholder.email')"
+            :placeholder="$t('placeholder.email')"
             class="w-full"
             autocomplete="username"
             readonly
         />
       </UFormField>
 
-      <UFormField name="password" :label="$t('auth.label.password')">
+      <UFormField name="password" :label="$t('label.password')">
         <UInput
             :type="showPassword ? 'text' : 'password'"
             v-model="state.password"
-            :placeholder="$t('auth.placeholder.password')"
+            :placeholder="$t('placeholder.password')"
             class="w-full"
             autocomplete="new-password"
             autofocus
@@ -89,7 +89,7 @@ async function onSubmit(event) {
                 variant="link"
                 size="sm"
                 :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
-                :aria-label="showPassword ? $t('auth.text.hide_password') : $t('auth.text.show_password')"
+                :aria-label="showPassword ? $t('label.hide_password') : $t('label.show_password')"
                 :aria-pressed="showPassword"
                 aria-controls="password"
                 @click="showPassword = !showPassword"
@@ -98,11 +98,11 @@ async function onSubmit(event) {
         </UInput>
       </UFormField>
 
-      <UFormField name="password_confirmation" :label="$t('auth.label.password_confirmation')">
+      <UFormField name="password_confirmation" :label="$t('label.password_confirmation')">
         <UInput
             :type="showPassword ? 'text' : 'password'"
             v-model="state.password_confirmation"
-            :placeholder="$t('auth.placeholder.password_confirmation')"
+            :placeholder="$t('placeholder.password_confirmation')"
             class="w-full"
             autocomplete="new-password"
             :ui="{ trailing: 'pr-0.5' }"
@@ -113,7 +113,7 @@ async function onSubmit(event) {
                 variant="link"
                 size="sm"
                 :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
-                :aria-label="showPassword ? $t('auth.text.hide_password') : $t('auth.text.show_password')"
+                :aria-label="showPassword ? $t('label.hide_password') : $t('label.show_password')"
                 :aria-pressed="showPassword"
                 aria-controls="password"
                 @click="showPassword = !showPassword"
@@ -125,7 +125,7 @@ async function onSubmit(event) {
 
     <UButton
         type="submit"
-        :label="$t('auth.action.reset_password')"
+        :label="$t('action.reset_password')"
         size="lg"
         block
     />

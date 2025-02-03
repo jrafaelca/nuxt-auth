@@ -4,7 +4,7 @@ const {t} = useI18n()
 const {user, logout} = useAuth()
 
 const items = computed(() => [{
-  label: t('auth.action.logout'),
+  label: t('action.logout'),
   icon: 'i-lucide-log-out',
   onSelect: async () => logout()
 }])

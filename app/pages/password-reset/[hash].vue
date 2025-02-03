@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.title.reset_password',
+  title: 'title.reset_password',
   middleware: 'guest',
   layout: 'auth',
 })
@@ -13,8 +13,8 @@ const resetToken = route.params.hash
 
 <template>
   <AuthCard
-      :title="$t('auth.title.reset_password')"
-      :description="$t('auth.description.reset_password')"
+      :title="$t('title.reset_password')"
+      :description="$t('description.reset_password')"
       icon="i-lucide-lock-keyhole"
       backeable
   >
