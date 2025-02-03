@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.title.forgot_password',
+  title: 'title.forgot_password',
   middleware: 'guest',
   layout: 'auth',
 })
@@ -8,8 +8,8 @@ definePageMeta({
 
 <template>
   <AuthCard
-      :title="$t('auth.title.forgot_password')"
-      :description="$t('auth.description.forgot_password')"
+      :title="$t('title.forgot_password')"
+      :description="$t('description.forgot_password')"
       icon="i-lucide-key-round"
       backeable
   >

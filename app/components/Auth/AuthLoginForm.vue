@@ -38,22 +38,22 @@ async function onSubmit(event) {
       @submit="onSubmit"
   >
     <div class="space-y-5">
-      <UFormField name="email" :label="$t('auth.label.email')">
+      <UFormField name="email" :label="$t('label.email')">
         <UInput
             type="email"
             v-model="state.email"
-            :placeholder="$t('auth.placeholder.email')"
+            :placeholder="$t('placeholder.email')"
             class="w-full"
             autofocus
             autocomplete="username"
         />
       </UFormField>
 
-      <UFormField name="password" :label="$t('auth.label.password')">
+      <UFormField name="password" :label="$t('label.password')">
         <UInput
             :type="showPassword ? 'text' : 'password'"
             v-model="state.password"
-            :placeholder="$t('auth.placeholder.password')"
+            :placeholder="$t('placeholder.password')"
             class="w-full"
             autocomplete="current-password"
             :ui="{ trailing: 'pr-0.5' }"
@@ -64,7 +64,7 @@ async function onSubmit(event) {
                 variant="link"
                 size="sm"
                 :icon="showPassword ? 'i-lucide-eye' : 'i-lucide-eye-closed'"
-                :aria-label="$t(showPassword ? 'auth.text.hide_password' : 'auth.text.show_password')"
+                :aria-label="$t(showPassword ? 'label.hide_password' : 'label.show_password')"
                 :aria-pressed="showPassword"
                 aria-controls="password"
                 @click="showPassword = !showPassword"
@@ -75,12 +75,12 @@ async function onSubmit(event) {
     </div>
 
     <div class="flex items-center justify-between">
-      <UCheckbox :label="$t('auth.label.remember')" name="remember" v-model="state.remember"/>
+      <UCheckbox :label="$t('label.remember')" name="remember" v-model="state.remember"/>
 
       <UButton
           v-if="appConfig.auth.forgotPassword"
           :to="$localeRoute({name: 'forgot-password'})"
-          :label="$t('auth.action.forgot_password')"
+          :label="$t('action.forgot_password')"
           variant="link"
           class="p-0"
       />
@@ -88,7 +88,7 @@ async function onSubmit(event) {
 
     <UButton
         type="submit"
-        :label="$t('auth.action.login')"
+        :label="$t('action.login')"
         size="lg"
         block
     />

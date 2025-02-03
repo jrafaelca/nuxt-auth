@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.title.register',
+  title: 'title.register',
   middleware: 'guest',
   layout: 'auth',
 })
@@ -8,18 +8,18 @@ definePageMeta({
 
 <template>
   <AuthCard
-      :title="$t('auth.title.register')"
-      :description="$t('auth.description.register')"
+      :title="$t('title.register')"
+      :description="$t('description.register')"
   >
     <AuthRegisterForm/>
 
     <div class="text-center">
       <p class="text-sm text-[var(--ui-text-dimmed)]">
-        {{ $t('auth.text.registered') }}
+        {{ $t('label.registered') }}
 
         <UButton
             :to="$localeRoute({name: 'login'})"
-            :label="$t('auth.action.login')"
+            :label="$t('action.login')"
             variant="link"
             class="p-0"
         />

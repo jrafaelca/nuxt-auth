@@ -10,8 +10,8 @@ async function resendVerifyNotification() {
     })
 
     toast.add({
-      title: t('auth.notification.request_email_verify.title'),
-      description: t('auth.notification.request_email_verify.description'),
+      title: t('title.request_email_verify'),
+      description: t('description.request_email_verify'),
       color: 'info',
       icon: 'i-lucide-mail'
     });
@@ -23,7 +23,7 @@ async function resendVerifyNotification() {
 
 <template>
   <UButton
-      :label="$t('auth.action.send_email_verify')"
+      :label="$t('action.send_email_verify')"
       block
       @click="resendVerifyNotification"
   />

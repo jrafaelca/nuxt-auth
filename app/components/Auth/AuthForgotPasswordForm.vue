@@ -21,8 +21,8 @@ async function onSubmit(event) {
     })
 
     toast.add({
-      title: t('auth.notification.request_password.title'),
-      description: t('auth.notification.request_password.description'),
+      title: t('title.request_password'),
+      description: t('description.request_password'),
       color: 'info',
       icon: 'i-lucide-info'
     });
@@ -46,11 +46,11 @@ async function onSubmit(event) {
       @submit="onSubmit"
   >
     <div class="space-y-5">
-      <UFormField name="email" :label="$t('auth.label.email')">
+      <UFormField name="email" :label="$t('label.email')">
         <UInput
             type="email"
             v-model="state.email"
-            :placeholder="$t('auth.placeholder.email')"
+            :placeholder="$t('placeholder.email')"
             class="w-full"
             autofocus
             autocomplete="username"
@@ -60,7 +60,7 @@ async function onSubmit(event) {
 
     <UButton
         type="submit"
-        :label="$t('auth.action.request_password')"
+        :label="$t('action.request_password')"
         size="lg"
         block
     />

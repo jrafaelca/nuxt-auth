@@ -1,75 +1,55 @@
 {
-  "auth": {
-    "action": {
-      "back_login": "Back to log in",
-      "forgot_password": "Forgot password?",
-      "login": "Sign in",
-      "logout": "Logout",
-      "register": "Sign up",
-      "request_password": "Request password",
-      "reset_password": "Reset password",
-      "send_email_verify": "Resend Verification Email"
-    },
-    "description": {
-      "email_verify": "We send a verification link to the email address you provided.",
-      "forgot_password": "No worries, we’ll send you reset instructions.",
-      "login": "Welcome back! Please enter your details.",
-      "register": "Sign up in less than 2 minutes.",
-      "reset_password": "Your new password must be different to previously used passwords."
-    },
-    "help": {
-      "password": "Must be at least 8 characters."
-    },
-    "label": {
-      "email": "Email",
-      "name": "Name",
-      "password": "Password",
-      "password_confirmation": "Confirm password",
-      "remember": "Remember me"
-    },
-    "notification": {
-      "password_updated": {
-        "description": "Your password has been successfully changed. You can now log in with your new password.",
-        "title": "Password updated"
-      },
-      "request_email_verify": {
-        "description": "Please check your inbox for the verification email and follow the instructions to verify your account.",
-        "title": "Verification email resent"
-      },
-      "request_password": {
-        "description": "Check your email to continue with the password recovery process.",
-        "title": "Request sent"
-      }
-    },
-    "placeholder": {
-      "email": "Enter your email",
-      "name": "Enter your name",
-      "password": "Enter your password",
-      "password_confirmation": "Enter again your password"
-    },
-    "text": {
-      "hide_password": "Hide Password",
-      "registered": "Already have an account?",
-      "show_password": "Show password",
-      "unregistered": "Don’t have an account?"
-    },
-    "title": {
-      "email_verify": "Check your email",
-      "forgot_password": "Forgot password?",
-      "login": "Log in to your account",
-      "register": "Create an account",
-      "reset_password": "Set new password"
-    }
+  "action": {
+    "back_login": "Back to log in",
+    "forgot_password": "Forgot password?",
+    "login": "Sign in",
+    "logout": "Logout",
+    "register": "Sign up",
+    "request_password": "Request password",
+    "reset_password": "Reset password",
+    "send_email_verify": "Resend Verification Email"
   },
-  "dashboard": {
-    "label": {
-      "open_sidebar": "Open sidebar"
-    },
-    "menu": {
-      "home": "Dashboard"
-    },
-    "title": {
-      "home": "Dashboard"
-    }
+  "description": {
+    "email_verify": "We send a verification link to the email address you provided.",
+    "forgot_password": "No worries, we’ll send you reset instructions.",
+    "login": "Welcome back! Please enter your details.",
+    "update_password": "Your password has been successfully changed. You can now log in with your new password.",
+    "register": "Sign up in less than 2 minutes.",
+    "request_email_verify": "Please check your inbox for the verification email and follow the instructions to verify your account.",
+    "request_password": "Check your email to continue with the password recovery process.",
+    "reset_password": "Your new password must be different to previously used passwords."
+  },
+  "help": {
+    "password": "Must be at least 8 characters."
+  },
+  "label": {
+    "dashboard": "Dashboard",
+    "email": "Email",
+    "hide_password": "Hide Password",
+    "name": "Name",
+    "open_sidebar": "Open sidebar",
+    "password": "Password",
+    "password_confirmation": "Confirm password",
+    "registered": "Already have an account?",
+    "remember": "Remember me",
+    "show_password": "Show password",
+    "unregistered": "Don’t have an account?"
+  },
+  "placeholder": {
+    "email": "Enter your email",
+    "name": "Enter your name",
+    "password": "Enter your password",
+    "password_confirmation": "Enter again your password"
+  },
+  "title": {
+    "dashboard": "Dashboard",
+    "email_verify": "Check your email",
+    "forgot_password": "Forgot password?",
+    "login": "Log in to your account",
+    "update_password": "Password updated",
+    "register": "Create an account",
+    "request_email_verify": "Verification email resent",
+    "request_password": "Request sent",
+    "reset_password": "Set new password"
   }
 }

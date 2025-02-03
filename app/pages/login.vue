@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.title.login',
+  title: 'title.login',
   middleware: 'guest',
   layout: 'auth',
 })
@@ -10,18 +10,18 @@ const appConfig = useAppConfig()
 
 <template>
   <AuthCard
-      :title="$t('auth.title.login')"
-      :description="$t('auth.description.login')"
+      :title="$t('title.login')"
+      :description="$t('description.login')"
   >
     <AuthLoginForm/>
 
     <div v-if="appConfig.auth.register" class="text-center">
       <p class="text-sm text-[var(--ui-text-dimmed)]">
-        {{ $t('auth.text.unregistered') }}
+        {{ $t('label.unregistered') }}
 
         <UButton
             :to="$localeRoute({name: 'register'})"
-            :label="$t('auth.action.register')"
+            :label="$t('action.register')"
             variant="link"
             class="p-0"
         />

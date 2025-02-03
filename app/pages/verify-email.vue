@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  title: 'auth.title.email_verify',
+  title: 'title.email_verify',
   middleware: 'auth',
   layout: 'auth',
 })
@@ -9,8 +9,8 @@ definePageMeta({
 
 <template>
   <AuthCard
-      :title="$t('auth.title.email_verify')"
-      :description="$t('auth.description.email_verify')"
+      :title="$t('title.email_verify')"
+      :description="$t('description.email_verify')"
       icon="i-lucide-mail"
   >
     <EmailResendVerifyNotificationButton/>
